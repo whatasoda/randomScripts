@@ -1,0 +1,16 @@
+{
+  "name": "gulp_container",
+  "version": "1.0.0",
+  "description": "",
+  "main": "build.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatasoda/randomScripts.git"
+  },
+  "author": "whatasoda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatasoda/randomScripts/issues"
+  },
+  "homepage": "https://github.com/whatasoda/randomScripts#readme"
+}

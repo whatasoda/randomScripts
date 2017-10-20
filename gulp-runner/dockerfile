@@ -1,0 +1,21 @@
+FROM ubuntu:xenial-20171006
+
+WORKDIR /root
+RUN apt-get -y update && \
+    apt-get -y install curl wget && \
+    apt-get -y update && \
+    apt-get -y install git
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+ADD package.json /root
+RUN . /root/.nvm/nvm.sh && \
+    nvm install 6.11.4 && \
+    env
+ENV PATH=/root/.nvm/versions/node/v6.11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+RUN npm install -g gulp && \
+    npm install --save-dev gulp watch browser-sync gulp-autoprefixer gulp-plumber gulp-sass gulp-sass-glob fs
+env PATH=/root/.nvm/versions/node/v6.11.4/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/root/.nvm/versions/node/v6.11.4/lib/node_modules/gulp/bin/
+ADD build.js /root
+ADD gulpfile.js /root
+
+ENTRYPOINT ["node", "/root/build.js"]
