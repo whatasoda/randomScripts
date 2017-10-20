@@ -1,0 +1,19 @@
+{
+  "name": "regexp_optimiser",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatasoda/randomScripts.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/whatasoda/randomScripts/issues"
+  },
+  "homepage": "https://github.com/whatasoda/randomScripts#readme"
+}
