@@ -1,0 +1,18 @@
+FROM fedora:26
+
+WORKDIR /root
+RUN dnf update -y && \
+    dnf install -y clisp && \
+    dnf update -y && \
+    dnf install -y maxima
+RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.5/install.sh | bash
+RUN . /root/.nvm/nvm.sh && \
+    nvm install 6.11.4
+ENV PATH $PATH:/root/.nvm/versions/node/v6.11.4/bin
+ENV LANG en_US.utf8
+ADD package.json /root
+RUN npm install watch object.entries fs
+ADD exec.js /root
+# ADD maxima-index.lisp /usr/share/info/./
+
+ENTRYPOINT ["node", "/root/exec.js"]
